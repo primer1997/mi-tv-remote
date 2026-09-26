@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#141414"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- status bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <View
+                android:id="@+id/statusDot"
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:background="#888888" />
+
+            <TextView
+                android:id="@+id/statusText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:text="Not connected"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp" />
+        </LinearLayout>
+
+        <!-- transport toggle -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnWifi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Wi-Fi" />
+
+            <Button
+                android:id="@+id/btnBt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Bluetooth" />
+        </LinearLayout>
+
+        <!-- Wi-Fi panel -->
+        <LinearLayout
+            android:id="@+id/wifiPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/ipInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="TV IP address (e.g. 192.168.1.5)"
+                    android:inputType="text"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#888888" />
+
+                <Button
+                    android:id="@+id/btnConnect"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Connect" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnScan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Scan for TV" />
+
+                <TextView
+                    android:id="@+id/scanStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text=""
+                    android:textColor="#AAAAAA"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/foundList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Tip: on the TV go to Settings > Network to find its IP address. First connection shows a pairing code on the TV."
+                android:textColor="#888888"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <!-- Bluetooth panel -->
+        <LinearLayout
+            android:id="@+id/btPanel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/btInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1. Pair this phone with your TV in Android Bluetooth settings.\n2. Tap Enable below, then pick the TV."
+                android:textColor="#AAAAAA"
+                android:textSize="13sp" />
+
+            <Button
+                android:id="@+id/btnBtEnable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Enable Bluetooth remote" />
+
+            <LinearLayout
+                android:id="@+id/btDevices"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="vertical" />
+        </LinearLayout>
+
+        <!-- D-pad -->
+        <GridLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:columnCount="3"
+            android:rowCount="3">
+
+            <Space android:layout_width="72dp" android:layout_height="72dp" />
+
+            <Button
+                android:id="@+id/dpadUp"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:text="▲"
+                android:textSize="20sp" />
+
+            <Space android:layout_width="72dp" android:layout_height="72dp" />
+
+            <Button
+                android:id="@+id/dpadLeft"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:text="◀"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/dpadOk"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:text="OK"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/dpadRight"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:text="▶"
+                android:textSize="20sp" />
+
+            <Space android:layout_width="72dp" android:layout_height="72dp" />
+
+            <Button
+                android:id="@+id/dpadDown"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:text="▼"
+                android:textSize="20sp" />
+
+            <Space android:layout_width="72dp" android:layout_height="72dp" />
+        </GridLayout>
+
+        <!-- home / back -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home" />
+
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Back" />
+        </LinearLayout>
+
+        <!-- volume -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnVolDown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vol −" />
+
+            <Button
+                android:id="@+id/btnMute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Mute" />
+
+            <Button
+                android:id="@+id/btnVolUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Vol +" />
+        </LinearLayout>
+
+        <!-- power / media / keyboard -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnPower"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Power" />
+
+            <Button
+                android:id="@+id/btnPlayPause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="⏯" />
+
+            <Button
+                android:id="@+id/btnKeyboard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="⌨" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
